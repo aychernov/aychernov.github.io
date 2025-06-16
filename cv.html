@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <title>CV — Чернов Александр Юрьевич</title>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4/css/tachyons.min.css">
+    <style>
+        :root[data-theme="light"] {
+            --bg: #ffffff;
+            --fg: #111;
+            --accent: #2b6cb0;
+        }
+        :root[data-theme="dark"] {
+            --bg: #111;
+            --fg: #eee;
+            --accent: #63b3ed;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            transition: background 0.3s, color 0.3s;
+        }
+        a {
+            color: var(--accent);
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section-title {
+            border-left: 4px solid var(--accent);
+            padding-left: 0.5rem;
+        }
+        .timeline {
+            border-left: 2px dashed var(--accent);
+            margin-left: 1rem;
+            padding-left: 1rem;
+        }
+        .timeline-item::before {
+            content: "●";
+            color: var(--accent);
+            display: inline-block;
+            margin-left: -1.25rem;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="pa4-ns pa3 sans-serif">
+<header class="mb4 flex items-center justify-between">
+    <div>
+        <h1 class="f2 fw6 ma0">Чернов Александр Юрьевич</h1>
+        <p class="f5 gray">Senior Frontend Developer</p>
+    </div>
+    <button class="theme-toggle" id="theme-toggle">🌙</button>
+</header>
+
+<main>
+    <section class="mb4 fade-in">
+        <h2 class="f4 fw6 section-title">Контакты</h2>
+        <ul class="list pl0 lh-copy">
+            <li>Телефон: +7 (952) 2965034</li>
+            <li>Email: <a href="mailto:sashacool75@gmail.com">sashacool75@gmail.com</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/chernovay/">chernovay</a></li>
+            <li>Telegram: <a href="https://t.me/aychern">@aychern</a></li>
+            <li>Проживает: Псков</li>
+        </ul>
+    </section>
+
+    <section class="mb4 fade-in">
+        <h2 class="f4 fw6 section-title">Желаемая позиция</h2>
+        <p class="lh-copy">Senior Frontend Developer — 350 000 ₽</p>
+        <p class="lh-copy">Готов к переезду: Москва, Санкт-Петербург, командировки</p>
+    </section>
+
+    <section class="mb4 fade-in">
+        <h2 class="f4 fw6 section-title">Опыт работы (4 года 11 месяцев)</h2>
+        <div class="timeline">
+            <div class="timeline-item mb3">
+                <strong>Альфа-Банк</strong> — Middle Frontend-разработчик (2023 — настоящее время)<br>
+                <small>React, Redux, SDUI, TypeScript, JOTAI, Cypress/Playwright</small>
+                <p class="lh-copy">Работа с SDUI, техдолг, митапы, легаси → новый стек</p>
+            </div>
+            <div class="timeline-item mb3">
+                <strong>CSSSR</strong> — Middle Frontend-разработчик (07.2024 — 11.2024)<br>
+                <p class="lh-copy">SPA с нуля для приема платежей</p>
+            </div>
+            <div class="timeline-item mb3">
+                <strong>Банк ВТБ</strong> — Frontend-разработчик (04.2023 — 11.2023)<br>
+                <p class="lh-copy">RTMP, WebRTC, NextJS, WebSockets</p>
+            </div>
+            <div class="timeline-item mb3">
+                <strong>Andersen</strong> — Frontend-разработчик (08.2022 — 04.2023)</strong>
+                <p class="lh-copy">Производительность, документация, юнит-тесты</p>
+            </div>
+            <div class="timeline-item mb3">
+                <strong>Uchi.ru</strong> — Преподаватель программирования (09.2021 — 09.2022)</strong>
+            </div>
+            <div class="timeline-item mb3">
+                <strong>Codepeckers</strong> — Frontend-разработчик (09.2021 — 08.2022)</strong>
+            </div>
+            <div class="timeline-item mb3">
+                <strong>ItPelag</strong> — Junior Frontend (05.2022 — 07.2022)</strong>
+            </div>
+            <div class="timeline-item mb3">
+                <strong>fl.ru</strong> — HTML-верстальщик (09.2019 — 09.2020)</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb4 fade-in">
+        <h2 class="f4 fw6 section-title">Образование</h2>
+        <ul class="list pl0 lh-copy">
+            <li>МАГУ — Магистр, Автономные ИС (2024)</li>
+            <li>МАГУ — Бакалавр, Теплофизика (2022)</li>
+        </ul>
+    </section>
+
+    <section class="mb4 fade-in">
+        <h2 class="f4 fw6 section-title">Навыки и технологии</h2>
+        <p class="lh-copy">JavaScript, TypeScript, React, Redux, Zustand, JOTAI, Node.js, Docker, GraphQL, Jest, WebSockets, Agile, CI/CD, Git, Webpack, Styled Components, RTK Query, Figma, HTML, SCSS, и др.</p>
+    </section>
+
+    <section class="mb4 fade-in">
+        <h2 class="f4 fw6 section-title">Языки</h2>
+        <ul class="list pl0 lh-copy">
+            <li>Русский — родной</li>
+            <li>Английский — A2</li>
+            <li>Испанский — A1</li>
+        </ul>
+    </section>
+
+    <section class="mb4 fade-in">
+        <h2 class="f4 fw6 section-title">Обо мне</h2>
+        <p class="lh-copy">React/Redux, Node, TypeScript, NextJs. Code review, менторство, T-Shape, SOLID, Agile, автор YouTube и подкаста TINOID. <a href="https://www.youtube.com/watch?v=DI8DvUxAl8U">Митап</a>, <a href="https://tinoid.mave.digital">Подкаст</a>.</p>
+    </section>
+
+    <section class="mb5 fade-in">
+        <a href="assets/chernov_cv.pdf" download class="f6 link dim br2 ba ph3 pv2 mb2 dib">⬇️ Скачать PDF CV</a>
+    </section>
+</main>
+
+<footer class="tc pt4">
+    <a href="index.html" class="link dim gray f6 mr3">← Назад</a>
+    <p class="f7 gray">Обновлено: 9 июня 2025 в 14:30</p>
+</footer>
+
+<script>
+    (function () {
+        const btn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initial = saved || (prefersDark ? 'dark' : 'light');
+        html.setAttribute('data-theme', initial);
+        btn.textContent = initial === 'dark' ? '☀️' : '🌙';
+        btn.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            btn.textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+    })();
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+</body>
+</html>

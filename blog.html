@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <title>Блог — Имя Фамилия</title>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4/css/tachyons.min.css">
+    <style>
+        :root[data-theme="light"] {
+            --bg: #ffffff;
+            --fg: #111;
+            --accent: #2b6cb0;
+        }
+        :root[data-theme="dark"] {
+            --bg: #111;
+            --fg: #eee;
+            --accent: #63b3ed;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            transition: background 0.3s, color 0.3s;
+        }
+        a {
+            color: var(--accent);
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Анимации при скролле */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="pa4-ns pa3 sans-serif">
+<header class="mb4 flex items-center justify-between">
+    <div>
+        <h1 class="f2 fw6 ma0">Блог</h1>
+        <p class="f5 gray">Мысли, заметки и статьи.</p>
+    </div>
+    <button class="theme-toggle" id="theme-toggle">🌙</button>
+</header>
+
+<main>
+    <article class="mb5 fade-in">
+        <h2 class="f3 fw5 mb1">Как я начал использовать Tachyons</h2>
+        <p class="f6 gray">15 июня 2025</p>
+        <p class="measure lh-copy">
+            Tachyons — это CSS-фреймворк, который позволяет быстро и эффективно собирать интерфейсы. В этой статье я делюсь первыми шагами и любимыми трюками.
+        </p>
+    </article>
+
+    <article class="mb5 fade-in">
+        <h2 class="f3 fw5 mb1">Как устроен мой стек для pet-проектов</h2>
+        <p class="f6 gray">1 июня 2025</p>
+        <p class="measure lh-copy">
+            Для небольших проектов я использую связку PocketBase, Astro и минималистичный CSS. Это позволяет разрабатывать быстро, красиво и без перегрузки.
+        </p>
+    </article>
+
+    <article class="mb5 fade-in">
+        <h2 class="f3 fw5 mb1">Немного о продуктивности</h2>
+        <p class="f6 gray">20 мая 2025</p>
+        <p class="measure lh-copy">
+            Когда работать не хочется — я просто начинаю делать самое простое. Это помогает справиться с прокрастинацией и выйти в рабочий поток.
+        </p>
+    </article>
+</main>
+
+<footer class="tc pt4">
+    <a href="index.html" class="link dim gray f6 mr3">← Назад</a>
+    <p class="f7 gray">© 2025 Имя Фамилия</p>
+</footer>
+
+<script>
+    // Переключатель темы
+    (function () {
+        const btn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        const saved = localStorage.getItem('theme');
+        const darkPreferred = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initial = saved || (darkPreferred ? 'dark' : 'light');
+        html.setAttribute('data-theme', initial);
+        btn.textContent = initial === 'dark' ? '☀️' : '🌙';
+
+        btn.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            btn.textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+    })();
+
+    // Анимация появления при скролле
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+</body>
+</html>

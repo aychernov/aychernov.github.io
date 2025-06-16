@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Портфолио</title>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4/css/tachyons.min.css">
+    <style>
+        /* CSS-переменные для двух тем */
+        :root[data-theme="light"] {
+            --bg: #f4f4f4;
+            --fg: #111;
+            --accent: #357EDD;
+        }
+        :root[data-theme="dark"] {
+            --bg: #333;
+            --fg: #EEEE;
+            --accent: #5E9FDA;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            transition: background .3s, color .3s;
+        }
+        a { color: var(--accent); }
+        /* Переключатель темы */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        /* Пример динамики: hover-подсветка ссылок */
+        .link-animate:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="min-vh-100 pa2 flex flex-column">
+<header class="pa4-ns pa3">
+    <h1 class="f2 fw6">Чернов Александр</h1>
+    <p class="f5">Frontend / Backend Developer</p>
+    <nav class="mt3">
+        <a href="in.html" class="link dim gray f6 mr3">Главная</a>
+        <a href="blog.html" class="link dim gray f6 mr3">Блог</a>
+        <a href="cv.html" class="link dim gray f6">CV</a>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">🌙</button>
+
+</header>
+
+<main class="pa4-ns pa3">
+    <section class="mb5">
+        <h2 class="f3 fw5">Обо мне</h2>
+        <p class="measure lh-copy">Краткое описание: кто вы, чем занимаетесь, какие технологии используете.</p>
+    </section>
+
+    <section class="mb5">
+        <h2 class="f3 fw5">Последние проекты</h2>
+        <ul class="list pl0 measure lh-copy">
+            <li class="mb3">
+                <a href="https://github.com/..." class="link dim blue">Project One</a> — Краткое описание проекта.
+            </li>
+            <li class="mb3">
+                <a href="https://github.com/..." class="link dim blue">Project Two</a> — Краткое описание.
+            </li>
+        </ul>
+    </section>
+</main>
+
+<footer class="pa4-ns pa3 tc gray f6">
+    <p>© 2025 Имя Фамилия • <a href="mailto:email@example.com" class="link dim gray">email@example.com</a></p>
+</footer>
+<script>
+    (function(){
+        const btn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        const saved = localStorage.getItem('theme');
+        const darkPreferred = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = saved || (darkPreferred ? 'dark' : 'light');
+        html.setAttribute('data-theme', initialTheme);
+        btn.textContent = initialTheme === 'dark' ? '☀️' : '🌙';
+
+        btn.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', next);
+            btn.textContent = next === 'dark' ? '☀️' : '🌙';
+            localStorage.setItem('theme', next);
+        });
+    })();
+</script>
+</body>
+</html>
